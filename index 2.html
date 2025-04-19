@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra năm nhuận (Prompt)</title>
+</head>
+<body>
+    <a href="index 1.html" target="_self">bài 1</a>
+    <a href="index 2.html" target="_self">bài 2</a>
+    <a href="index 3.html" target="_self">bài 3</a>
+    <a href="index 4.html" target="_self">bài 4</a>
+    <a href="index 5.html" target="_self">bài 5</a>
+    <a href="index 6.html" target="_self">bài 6</a>
+    <a href="index 7.html" target="_self">bài 7</a>
+    <a href="index 8.html" target="_self">bài 8</a>
+    <h1>Kiểm tra năm nhuận</h1>
+    <p id="ketQua2"></p>
+
+    <script>
+        function kiemTraNamNhuan() {
+            const namChuoi = prompt("Vui lòng nhập một năm dương lịch:");
+            let laNamNhuan = false;
+            const nam = parseInt(namChuoi);
+
+            if (namChuoi === null) {
+                document.getElementById("ketQua2").textContent = "Bạn đã hủy nhập.";
+                return;
+            }
+
+            if (isNaN(nam) || !Number.isInteger(nam)) {
+                document.getElementById("ketQua2").textContent = "Vui lòng nhập một số nguyên là năm.";
+                return;
+            }
+
+            if ((nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0)) {
+                laNamNhuan = true;
+            }
+
+            document.getElementById("ketQua2").textContent = nam + (laNamNhuan ? " là năm nhuận." : " không phải là năm nhuận.");
+        }
+
+   
+        kiemTraNamNhuan();
+    </script>
+</body>
+</html>
